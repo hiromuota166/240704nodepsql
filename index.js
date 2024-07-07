@@ -1,9 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 8080;
 
 // JSONを返すGETエンドポイント
-app.get('/api', (req, res) => {
+app.get('/api', cors(), (req, res) => {
   res.json({ message: 'Hello, World!' });
 });
 
