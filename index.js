@@ -10,7 +10,8 @@ app.use(bodyParser.json());
 
 // JSONを返すGETエンドポイント
 app.get('/api', (req, res) => {
-  res.json({ message: 'Hello, World!' });
+  const name = req.query.name || 'World';
+  res.json({ message: 'Hello, ${name}!' });
 });
 
 // JSONを返すPOSTエンドポイント
