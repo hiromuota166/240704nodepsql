@@ -4,9 +4,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 8080;
 
+const userRoutes = require('./routes/users');
+
 app.use(cors());
 
 app.use(bodyParser.json());
+
+app.use('/api/users', userRoutes);
 
 // JSONを返すGETエンドポイント
 app.get('/api', (req, res) => {
