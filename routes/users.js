@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db/pool');
 
-
 // ユーザー一覧を取得するエンドポイント
 router.get('/', async (req, res) => {
   try {
@@ -10,7 +9,7 @@ router.get('/', async (req, res) => {
     res.json(result.rows);
   } catch (err) {
     console.error(err);
-    res.sendStatus(500).json(err);
+    res.status(500).json({ error: err.message });
   }
 });
 
