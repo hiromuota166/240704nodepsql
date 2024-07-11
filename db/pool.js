@@ -1,11 +1,11 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const pool = new Pool({
-  user: 'ootakeiyume',
-  host: 'two40704nodepsql.onrender.com',
-  database: 'linedb',
-  password: 'hiromu166',
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 module.exports = pool;
