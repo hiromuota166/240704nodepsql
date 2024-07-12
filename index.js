@@ -5,12 +5,18 @@ const app = express();
 const port = 8080;
 
 const userRoutes = require('./routes/users');
+const facultiesRoutes = require('./routes/faculties');
+const yearsRoutes = require('./routes/years');
+const campusesRoutes = require('./routes/campuses');
 
 app.use(cors());
 
 app.use(bodyParser.json());
 
 app.use('/api/users', userRoutes);
+app.use('/api/faculties', facultiesRoutes);
+app.use('/api/years', yearsRoutes);
+app.use('/api/campuses', campusesRoutes);
 
 // JSONを返すGETエンドポイント
 app.get('/api', (req, res) => {
